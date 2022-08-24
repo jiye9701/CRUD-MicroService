@@ -1,0 +1,27 @@
+@charset "UTF-8";
+h1 {
+	font-variant: small-caps;
+	text-transform: capitalize;
+	text-align: center;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: darkcyan;
+
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+#allform {
+	background-color: #BCFABD;
+}
+#allpage{
+	text-align:center;
+}
+#btnAdd
+{
+	font-size:20px;
+	background-color:darkcyan;
+	border: solid 2px darkcyan;
+	border-radius: 10px;
+	padding:10px 10px;
+}

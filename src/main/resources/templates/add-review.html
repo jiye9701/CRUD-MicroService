@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Review Form</title>
+<link th:href="@{/styles/css/indexStyleSheet.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id ="allPage"style="width:980px; margin-left:auto; margin-right:auto;">
+<header>
+<h1>Add Reviews</h1>
+</header>
+      
+<form id = "allform" style ="height:500px; text-align:center;" th:action="@{/add2}" action="#" th:object="${review}" method="post">
+
+<br>
+<label>Review Data: </label><br>
+<select style="width:400px; height:30px;" id="data" name="data" required>
+<option selected disabled>--Select the type--</option>
+<option>Compliment</option>
+<option>Dissatisfaction</option>
+<option>Suggestion</option>
+      			
+</select><br><br>
+
+
+  
+  <label for="userid">Review Id:</label><br>
+  <input style="width:400px; height:20px;" type="text" id="userid" name="userid" placeholder="Enter the Review Id" required/><br><br>
+  <span th:if="${#fields.hasErrors('userid')}" th:errors="*{userid}"></span>
+  
+  <label for="username">Review Name:</label><br>
+  <input style="width:400px; height:20px;" type="text" id="username" name="username" placeholder="Enter the Review Name" th:field="*{username}" required/><br><br>
+  <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+  
+  <label for="comment">Comment:</label><br>
+  <input style="width:400px; height:20px;" type="text" id="comment" name="comment" placeholder="Enter the comment" th:field="*{comment}" required/><br><br>
+  <span th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></span>
+  
+  <label for="rating">Rating (0 - 10): </label><br>
+  <input style="width:400px; height:20px;" type="number" min=0 max=10 id="rating" name="rating" placeholder="Rate the product" th:field="*{rating}" required/><br><br>
+  <span th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}"></span>
+  
+<br>
+  <div style="text-align:center;">
+  <input id="btnAdd" name="btnAdd" type="submit" value="Add Review"/>
+  <br>
+  <br>
+  </div>
+</form>
+      
+      </div>
+</body>
+</html>

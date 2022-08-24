@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Online System</title>
+<link th:href="@{/styles/css/indexStyleSheet.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id ="allPage"style="width:980px; margin-left:auto; margin-right:auto;">
+<header>
+<h1>Edit Products</h1>
+</header>
+
+      
+<form id = "allform" style ="height:500px; text-align:center;" th:action="@{/update/{productid}(productid=${product.productid})}" action="#" th:object="${product}" method="post">
+<br>
+    <label for="productid">Product ID:</label><br>
+    <input style="width:400px; height:20px;" disabled th:field="*{productid}" id="productid" placeholder="Product Id">
+    <span th:if="${#fields.hasErrors('productid')}" th:errors="*{productid}"></span><br><br>
+    
+<label for="productname">Product Name:</label><br>
+  <input style="width:400px; height:20px;" type="text" id="productname" name="productname" placeholder="Enter the Product Name" th:field="*{productname}" required/><br><br>
+  <span th:if="${#fields.hasErrors('productname')}" th:errors="*{productname}"></span>
+  
+  <label for="ProductPrice">Price:</label><br>
+  <input style="width:400px; height:20px;" type="text" id="price" name="price" placeholder="Enter the Price" th:field="*{price}" required/><br><br>
+  <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+  
+  <label for="ProductQuantity">Quantity:</label><br>
+  <input style="width:400px; height:20px;" type="text" id="quantity" name="quantity" placeholder="Enter the Quantity" th:field="*{quantity}" required/><br><br>
+  <span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span>
+  
+  <label for="ProductLocation">Location:</label><br>
+  <input style="width:400px; height:20px;" type="text" id="location" name="location" placeholder="Enter the Location" th:field="*{location}" required/><br><br>
+  <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span>
+  <br>
+  <div style="text-align:center;">
+  <input id="btnAdd" name="btnAdd" type="submit" value="Update Product"/>
+  <br>
+  <br>
+  </div>
+</form>
+      
+      </div>
+</body>
+</html>

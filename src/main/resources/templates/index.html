@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Form</title>
+<link th:href="@{/styles/css/indexStyleSheet.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id ="allPage"style="width:980px; margin-left:auto; margin-right:auto;">
+      <h1> Display Data</h1>
+      
+      
+      
+      <h2>  List of Products </h2>
+      <p><a href = "/product">Create a product</a></p>
+      
+      
+      <table border="1" width = 100% style = text-align:center;>
+        <thead>
+            <tr>
+                <td> ID </td>
+                <td> Name </td>
+                <td> Price </td>
+                <td> Quantity </td>
+                <td> Location </td>
+
+                <td> - </td>
+                <td> - </td>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr th:if="${products == null}">
+             <td colspan ="7"> No List available </td>
+
+            </tr> 
+            <tr th:each="product:${products}"> 
+              <td th:text="${product.productid}">Unavailable</td>
+              <td th:text="${product.productname}">Unavailable</td>
+              <td th:text="${product.price}">Unavailable</td>
+              <td th:text="${product.quantity}">Unavailable</td>
+              <td th:text="${product.location}">Unavailable</td>
+              
+              
+              <td><a th:href="@{/edit/{productid}(productid=${product.productid})}">Update</a></td>
+              <td><a th:href="@{/delete/{id}(id=${product.productid})}">Delete</a></td>
+            </tr>
+        
+        </tbody>
+      </table>
+      
+              <h2> Reviews </h2>
+              <p><a href = "/review">Write a review</a></p>
+      
+      <table border="1" width = 100% style = text-align:center;>
+        <thead>
+            <tr>
+
+                <td> ID </td>
+                <td> User </td>
+                <td> Comment </td>
+                <td> Rating </td>
+                <td> Product ID </td>
+                <td> Data </td>
+
+                <td> - </td>
+                <td> - </td>
+                
+            </tr>
+            
+        </thead>
+        <tbody>
+             <tr th:if="${reviews == null}">
+             <td colspan ="8"> No List available </td>
+            </tr> 
+            <tr th:each="review:${reviews}">
+            
+<!--              <tr th:each="product : ${products}">  
+              <td th:text="${products.id}"> 1 </td>
+              <td th:text="${products.name}"> paper </td> -->
+              
+              <td th:text="${review.userid}"></td>
+              <td th:text="${review.username}"></td>
+              <td th:text="${review.comment}"></td>
+              <td th:text="${review.rating}"></td>
+              
+              
+              
+              <td th:text="${review.productid}"></td>
+              <td th:text="${review.data}"></td>
+              
+
+              <td><a th:href="@{/edit2/{userid}(userid=${review.userid})}">Update</a></td>
+              <td><a th:href="@{/delete2/{userid}(userid=${review.userid})}">Delete</a></td>
+             
+            </tr>
+        
+        </tbody>
+      </table> 
+      </div>
+
+
+</body>
+</html>
